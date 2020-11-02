@@ -1,8 +1,10 @@
 package com.futao.springbootservice.controller.wx.miniprogram;
 
-import com.futao.starter.fustack.wx.miniprogram.model.resuslt.AuthCode;
+import com.futao.springbootservice.entity.UserEntity;
+import com.futao.springbootservice.model.SingleValueWrapper;
+import com.futao.springbootservice.service.WxUserService;
+import com.futao.starter.fustack.wx.miniprogram.model.WxBaseResult;
 import com.futao.starter.fustack.wx.miniprogram.service.AccessTokenService;
-import com.futao.starter.fustack.wx.miniprogram.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,23 +17,23 @@ import org.springframework.web.bind.annotation.*;
 public class WxMiniProgramController {
 
     @Autowired
-    private LoginService loginService;
+    private WxUserService wxUserService;
 
     @Autowired
     private AccessTokenService accessTokenService;
 
-    @GetMapping("/login")
-    public AuthCode login(@RequestParam("code") String code) {
-        return loginService.getOpenIdByCode(code);
+    @PostMapping("/login")
+    public UserEntity login(@RequestBody SingleValueWrapper<String> code) {
+        return wxUserService.login(code.getValue());
     }
 
-    @GetMapping("/acc")
+    @GetMapping("/bind")
     public String acc() {
         return accessTokenService.get();
     }
 
-    @GetMapping("/userInfo/{openId}")
-    public void userInfoByOpenId(@PathVariable String openId) {
-
+    @PostMapping("/sendMessage")
+    public WxBaseResult sendMessage() {
+        return wxUserService.sendMessage();
     }
 }
