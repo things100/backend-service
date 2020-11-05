@@ -9,13 +9,11 @@ import com.futao.springbootservice.mapper.UserMapper;
 import com.futao.springbootservice.mapper.WxUserMapper;
 import com.futao.springbootservice.service.WxUserService;
 import com.futao.starter.fustack.wx.miniprogram.model.WxBaseResult;
-import com.futao.starter.fustack.wx.miniprogram.model.request.Message;
 import com.futao.starter.fustack.wx.miniprogram.model.request.SubscribeMessage;
 import com.futao.starter.fustack.wx.miniprogram.model.resuslt.AuthCode;
 import com.futao.starter.fustack.wx.miniprogram.service.DynamicMessageService;
 import com.futao.starter.fustack.wx.miniprogram.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
