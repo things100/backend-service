@@ -15,7 +15,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
  */
 @MapperScan("com.futao.springbootservice.mapper")
 @SpringBootApplication
-@EnableConfigurationProperties(AppProperties.class)
+@EnableConfigurationProperties({AppProperties.class})
 public class SpringbootServiceApplication implements CommandLineRunner {
 
     @Autowired
@@ -23,7 +23,6 @@ public class SpringbootServiceApplication implements CommandLineRunner {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringbootServiceApplication.class, args);
-
     }
 
     @Override

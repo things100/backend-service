@@ -1,0 +1,38 @@
+### 生成Token
+GET {{baseUrl}}/fustack/auth/jwt/encode/1
+
+### Token解析
+GET {{baseUrl}}/fustack/auth/jwt/decode/eyJhbGciOiJIUzI1NiJ9.eyJleHBpcmUiOiIyMDIwLTExLTEyIDE1OjQzOjU0IiwidXNlcklkIjoxfQ.bw3gCdX2rhOs5sbxwIsxrbEYvMKCtjFwqsOc0qYvGa7
+
+### 用户列表
+GET {{baseUrl}}/user/list?pageNum=1&pageSize=10
+Accept: application/json;charset=UTF-8
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer {{authToken}}
+
+
+### 登录
+POST {{baseUrl}}/user/login
+Accept: application/json;charset=UTF-8
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer {{authToken}}
+
+{
+  "mobile": "18797811992"
+}
+
+
+### 注册
+POST {{baseUrl}}/user/register
+
+{
+
+}
+
+###
+GET {{baseUrl}}/test/distinct
+Authorization: Bearer {{authToken}}
+
+
+### 豆瓣
+GET {{baseUrl}}/douban/movies

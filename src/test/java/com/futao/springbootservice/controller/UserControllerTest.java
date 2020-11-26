@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.futao.springbootservice.entity.UserEntity;
 import com.futao.springbootservice.model.UserLogin;
 import com.futao.springbootservice.model.UserRegister;
+import com.futao.starter.fustack.consts.model.*;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.ResponseEntity;
@@ -13,8 +14,6 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author futao
@@ -26,9 +25,10 @@ class UserControllerTest {
 
     @Test
     void login() throws InterruptedException {
-        ExecutorService executorService = Executors.newFixedThreadPool(10);
+        int tc=1;
+        ExecutorService executorService = Executors.newFixedThreadPool(tc);
         CountDownLatch countDownLatch = new CountDownLatch(1);
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < tc; i++) {
             executorService.execute(() -> {
                 RestTemplate restTemplate = new RestTemplate();
                 UserLogin userLogin = new UserLogin();
@@ -39,8 +39,9 @@ class UserControllerTest {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                ResponseEntity<UserEntity> userEntityResponseEntity = restTemplate.postForEntity("http://localhost:8080/user/login", userLogin, UserEntity.class);
-                log.info("{}", JSON.toJSONString(userEntityResponseEntity.getBody()));
+                ResponseEntity<RestResult> userEntityResponseEntity = restTemplate.postForEntity("http://localhost:8080/user/login", userLogin, RestResult.class);
+                RestResult body = userEntityResponseEntity.getBody();
+                log.info("{}", JSON.toJSONString(body));
             });
         }
 

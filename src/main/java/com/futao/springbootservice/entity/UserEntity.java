@@ -1,6 +1,7 @@
 package com.futao.springbootservice.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.futao.starter.fustack.db.IdTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
@@ -8,6 +9,7 @@ import lombok.Setter;
 import lombok.experimental.Tolerate;
 
 import java.time.LocalDate;
+
 
 /**
  * 用户表
@@ -43,6 +45,7 @@ public class UserEntity extends IdTimeEntity {
     /**
      * 密码
      */
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
     /**

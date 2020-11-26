@@ -1,8 +1,10 @@
 package com.futao.springbootservice.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.futao.springbootservice.entity.UserEntity;
 import com.futao.springbootservice.model.UserLogin;
 import com.futao.springbootservice.model.UserRegister;
+import com.futao.springbootservice.model.result.UserResult;
 
 /**
  * @author futao
@@ -16,7 +18,7 @@ public interface UserService {
      * @param userLogin 登录信息
      * @return 用户信息
      */
-    UserEntity login(UserLogin userLogin);
+    UserResult login(UserLogin userLogin);
 
     /**
      * 用户注册
@@ -25,4 +27,14 @@ public interface UserService {
      * @return 用户信息
      */
     UserEntity register(UserRegister userRegister);
+
+    /**
+     * 查询用户列表
+     *
+     * @return
+     * @param pageNum
+     * @param pageSize
+     * @param mobile
+     */
+    Page<UserEntity> list(int pageNum, int pageSize, String mobile);
 }
