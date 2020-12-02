@@ -1,5 +1,6 @@
 package com.futao.springbootservice.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.futao.springbootservice.service.DouBanService;
 import lombok.extern.slf4j.Slf4j;
@@ -38,7 +39,7 @@ public class DouBanServiceImpl implements DouBanService {
                     .toString();
             JSONObject body = restTemplate.getForEntity(url, JSONObject.class).getBody();
             log.debug("{}", body);
-            redisTemplate.opsForValue().set("springboot:service:douban:movies", JSONObject.toJSONString(body));
+            redisTemplate.opsForValue().set("springboot:service:douban:movies", JSON.toJSONString(body));
             return body;
         } else {
             return JSONObject.parseObject(s);

@@ -4,35 +4,30 @@ import com.futao.starter.fusstack.foundation.model.IEnum;
 import lombok.AllArgsConstructor;
 
 /**
- * 用户性别
+ * 删除状态
  *
  * @author futao
- * @date 2020/11/2
+ * @date 2020/12/2
  */
 @AllArgsConstructor
-public enum UserGenderEnum implements IEnum<Integer> {
+public enum DeleteStatusEnum implements IEnum<Integer> {
 
     /**
-     * 0=未知
+     * 0=已删除
      */
-    UN_KNOW(0, "未知"),
+    DELETED(0, "已删除"),
 
     /**
-     * 1=男
+     * 1=正常
      */
-    MALE(1, "男"),
+    NORMAL(1, "正常");
 
-    /**
-     * 2=女
-     */
-    FEMALE(2, "女");
-
-    private final int gender;
+    private final int status;
     private final String description;
 
     @Override
     public Integer getValue() {
-        return gender;
+        return status;
     }
 
     @Override

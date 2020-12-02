@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.futao.springbootservice.mapper.ThingGroupUserMapper">
+
+
+    <select id="selectUserByGroupId" resultType="com.futao.springbootservice.model.result.GroupUser">
+        SELECT FU.*,
+               FTGU.create_date_time AS joinGroupDateTime
+        FROM fustack_thing_group_user FTGU
+                 LEFT JOIN fustack_user FU ON FTGU.user_id = FU.id
+        WHERE FTGU.delete_status = 1
+          AND FTGU.group_id = #{groupId}
+        ORDER BY FTGU.create_date_time ASC
+    </select>
+
+</mapper>

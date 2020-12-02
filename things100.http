@@ -1,0 +1,21 @@
+### 新增
+POST {{baseUrl}}/thingsGroup
+Authorization: {{authToken}}
+Content-Type: application/json
+
+{
+  "title": "变优秀计划"
+}
+
+
+### 分组分页
+GET {{baseUrl}}/thingsGroup/page?page=1&perPage=15
+Authorization: {{authToken}}
+
+### 删除
+DELETE {{baseUrl}}/thingsGroup/4
+Authorization: {{authToken}}
+
+### 成员
+GET {{baseUrl}}/thingsGroup/members/4
+Authorization: {{authToken}}
