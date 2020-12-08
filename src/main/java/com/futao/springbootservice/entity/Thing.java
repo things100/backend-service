@@ -1,8 +1,8 @@
 package com.futao.springbootservice.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.futao.starter.fustack.db.IdTimeEntity;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -12,8 +12,13 @@ import java.time.LocalDate;
  * @author futao
  * @date 2020/12/2
  */
+
+@TableName("fustack_thing")
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Thing extends IdTimeEntity {
     /**
      * 事情所属分组ID
@@ -23,11 +28,10 @@ public class Thing extends IdTimeEntity {
      * 事情标题
      */
     private String title;
-
     /**
-     * 前一个事情的id
+     * 顺序 小 -> 大
      */
-    private int preThingId;
+    private int sortNum;
     /**
      * @see com.futao.springbootservice.entity.enums.DeleteStatusEnum
      * 删除状态

@@ -41,6 +41,10 @@ public class ThingGroupServiceImpl implements ThingGroupService {
         ThingGroup thingGroupEntity = ThingGroup.builder()
                 .deleteStatus(DeleteStatusEnum.NORMAL.getValue())
                 .title(addBody.getTitle())
+                .description(addBody.getDescription())
+                .cover(addBody.getCover())
+                .coverType(addBody.getCoverType())
+                .open(addBody.isOpen())
                 .build();
         groupMapper.insert(thingGroupEntity);
         groupUserMapper.insert(ThingGroupUser.builder()

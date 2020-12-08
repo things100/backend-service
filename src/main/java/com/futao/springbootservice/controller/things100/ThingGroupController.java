@@ -15,7 +15,7 @@ import java.util.List;
  * @author futao
  * @date 2020/12/2
  */
-@RequestMapping("/thingsGroup")
+@RequestMapping("/thingGroup")
 @RestController
 public class ThingGroupController {
 
@@ -53,6 +53,10 @@ public class ThingGroupController {
     @Setter
     public static class AddBody {
         private String title;
+        private String description;
+        private String cover;
+        private int coverType;
+        private boolean open;
     }
 
     @GetMapping("/members/{groupId}")

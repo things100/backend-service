@@ -1,5 +1,5 @@
 ### 新增
-POST {{baseUrl}}/thingsGroup
+POST {{baseUrl}}/thingGroup
 Authorization: {{authToken}}
 Content-Type: application/json
 
@@ -9,13 +9,18 @@ Content-Type: application/json
 
 
 ### 分组分页
-GET {{baseUrl}}/thingsGroup/page?page=1&perPage=15
+GET {{baseUrl}}/thingGroup/page?page=1&perPage=15
 Authorization: {{authToken}}
 
 ### 删除
-DELETE {{baseUrl}}/thingsGroup/4
+DELETE {{baseUrl}}/thingGroup/4
 Authorization: {{authToken}}
 
 ### 成员
-GET {{baseUrl}}/thingsGroup/members/4
+GET {{baseUrl}}/thingGroup/members/4
+Authorization: {{authToken}}
+
+
+###事情列表
+GET {{baseUrl}}/thing/page?page=1&perPage=10&thingGroupId=5
 Authorization: {{authToken}}
