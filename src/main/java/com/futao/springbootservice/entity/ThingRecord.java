@@ -20,6 +20,8 @@ public class ThingRecord extends IdTimeEntity {
 
     /**
      * 资源类型
+     *
+     * @see com.futao.springbootservice.entity.enums.ContentTypeEnum
      */
     private int resourceType;
 
@@ -27,12 +29,6 @@ public class ThingRecord extends IdTimeEntity {
      * 资源内容
      */
     private String resourceContent;
-
-    /**
-     * 前一个记录的ID
-     */
-    private Long preRecordId;
-
     /**
      * 删除状态
      *
@@ -43,6 +39,4 @@ public class ThingRecord extends IdTimeEntity {
      * 记录发生的关联地址
      */
     private Long addressId;
-
-    private Address address;
 }
