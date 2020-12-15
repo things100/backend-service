@@ -4,9 +4,7 @@ import com.futao.springbootservice.entity.TestEntity;
 import com.futao.springbootservice.service.TestService;
 import com.futao.starter.fustack.auth.annotations.SkipUserAuth;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +23,11 @@ public class TestController {
     @GetMapping("/distinct")
     public List<TestEntity> distinct() {
         return testService.distinct();
+    }
+
+
+    @PutMapping("/dangerDbOps/{ops}")
+    public void dangerDbOps(@PathVariable("ops") Integer ops) {
+        testService.dangerDbOps(ops);
     }
 }

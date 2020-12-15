@@ -1,11 +1,13 @@
 package com.futao.springbootservice;
 
 import com.alibaba.fastjson.JSON;
+import com.sun.istack.internal.Interned;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.junit.jupiter.api.Test;
 
 import javax.crypto.SecretKey;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -13,6 +15,24 @@ import java.util.Arrays;
  * @date 2020/10/30
  */
 public class NormalTest {
+
+    @Test
+    public void test4(){
+        ArrayList<Integer> integers = new ArrayList<>(4);
+        integers.add(1);
+        integers.add(2);
+        integers.add(3);
+        integers.add(4);
+
+        integers
+                .forEach(x->{
+                    if (x==2){
+                        return;
+                    }
+                    System.out.println(x);
+                });
+
+    }
 
     @Test
     public void test3() {

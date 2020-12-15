@@ -23,4 +23,15 @@ public class TestServiceImpl implements TestService {
     public List<TestEntity> distinct() {
         return testMapper.selectList(Wrappers.<TestEntity>query().select("DISTINCT col1,col2,col3"));
     }
+
+    @Override
+    public void dangerDbOps(int ops) {
+        if (ops == 1) {
+            TestEntity entity = new TestEntity();
+            entity.setCol1("wanle");
+            testMapper.update(entity, null);
+        } else {
+            testMapper.delete(Wrappers.lambdaQuery());
+        }
+    }
 }
