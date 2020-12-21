@@ -27,6 +27,6 @@ public class SpringbootServiceApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println(encryptor.encrypt(""));
+        System.out.println(encryptor.encrypt("1"));
     }
 }

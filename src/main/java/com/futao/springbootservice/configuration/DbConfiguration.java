@@ -44,7 +44,7 @@ public class DbConfiguration {
                 boolean isDanger = isDanger(delete.getWhere());
                 if (isDanger) {
                     log.warn("检测到危险DELETE-SQL!");
-                    Assert.isFalse(isDanger, "危险UPDATE-SQL操作");
+                    Assert.isFalse(isDanger, "危险DELETE-SQL操作");
                 }
             }
 

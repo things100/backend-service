@@ -25,7 +25,7 @@
             <id>futao</id>
             <email>1185172056@qq.com</email>
             <name>一只特立独行的猪</name>
-            <timezone>+8</timezone>
+            <timezone>GMT +8</timezone>
             <url>http://github.com/FutaoSmile</url>
         </developer>
     </developers>
@@ -224,6 +224,8 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
+                    <!--跳过测试-->
+                    <skip>true</skip>
                 </configuration>
             </plugin>
         </plugins>

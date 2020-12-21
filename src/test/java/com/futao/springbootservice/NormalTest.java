@@ -1,14 +1,12 @@
 package com.futao.springbootservice;
 
 import com.alibaba.fastjson.JSON;
-import com.sun.istack.internal.Interned;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.junit.jupiter.api.Test;
 
 import javax.crypto.SecretKey;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * @author futao
